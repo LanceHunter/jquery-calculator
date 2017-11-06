@@ -12,7 +12,7 @@
   function checkButton() {
     let target = $(event.target);
     if (target.is('span')) {
-      if (input !== "Error") {
+      if (input !== "Error" && input !== "No negatives") {
         switch (target.text()) {
           case '0' :  input += '0';
                       updateScreen();
@@ -75,9 +75,10 @@
 
   function evaluateThis() {
     let validNumber = /[0-9]+[+x÷\-][0-9]+/;
-//    if ( (input[(input.length-1)] == /[+x÷-]/ ) || (input[0] == /[+x÷-]/ ) || ((input[(input.length-1)]==='0') && ( input[(input.length-2)]==='÷')) ) {
-      if (!validNumber.test(input) || ((input[(input.length-1)]==='0') && ( input[(input.length-2)]==='÷'))) {
+    if (!validNumber.test(input) || (input[0] === '+') || (input[0] === 'x') || (input[0] === '÷') || ((input[(input.length-1)]==='0') && ( input[(input.length-2)]==='÷'))) {
       input = 'Error';
+    } else if (input[0] === '-') {
+      input = 'No negatives';
     } else {
       let accumulator = 0;
       let accString = '';
