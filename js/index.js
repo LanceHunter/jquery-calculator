@@ -88,19 +88,19 @@
           accString += input[i];
           console.log(accString);
         } else {
-          accumulator = parseInt(accString);
+          accumulator = parseFloat(accString);
           theOp = input[i];
           accString = '';
         }
       }
       switch (theOp) {
-        case '+' :  input = (accumulator + parseInt(accString)).toString();
+        case '+' :  input = (Math.round((accumulator + parseFloat(accString))*100000000)/100000000).toString();;
                     break;
-        case '-' :  (input = accumulator - parseInt(accString)).toString();
+        case '-' :  input = (Math.round((accumulator - parseFloat(accString))*100000000)/100000000).toString();;
                     break;
-        case 'x' :  (input = accumulator * parseInt(accString)).toString();
+        case 'x' :  input = (Math.round((accumulator * parseFloat(accString))*100000000)/100000000).toString();
                     break;
-        case '÷' :  (input = accumulator / parseInt(accString)).toString();
+        case '÷' :  input = (Math.round((accumulator / parseFloat(accString))*100000000)/100000000).toString();
                     break;
       }
     }
