@@ -86,7 +86,7 @@
       for (i=0; i<input.length; i++) {
         if ( (input[i] !== '+') && (input[i] !== '-') && (input[i] !== 'x') && (input[i] !== '÷') ) {
           accString += input[i];
-          console.log(accString);
+//          console.log(accString);
         } else {
           accumulator = parseFloat(accString);
           theOp = input[i];
