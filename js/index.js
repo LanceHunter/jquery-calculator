@@ -49,7 +49,7 @@
           case '-':
             input += '-';
             break;
-          case '÷':
+          case '/':
             input += '÷';
             break;
           case 'x':
